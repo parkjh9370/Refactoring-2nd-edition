@@ -1,9 +1,16 @@
 export interface InVoices {
   customer: string;
-  performances: {
-    playID: string;
-    audience: number;
-  }[];
+  performances: Performance[];
 }
 
-export type plays = Record<string, Record<string, string>>
+export interface Performance {
+  playID: string;
+  audience: number;
+}
+
+export type Plays = Record<string, Record<string, string>>
+
+export enum PlayGenre {
+  tragedy = 'tragedy',
+  comedy = 'comedy',
+}

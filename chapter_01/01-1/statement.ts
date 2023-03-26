@@ -1,6 +1,6 @@
-import { InVoices, plays } from './../shared/interface';
+import { InVoices, Plays } from './../shared/interface';
 
-export function statement(invoice: InVoices, plays: plays) {
+export function statement(invoice: InVoices, plays: Plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `청구내역 (고객명: ${invoice.customer})\n`;
