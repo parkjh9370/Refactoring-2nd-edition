@@ -1,4 +1,4 @@
-import { InVoices, Plays, Performance, PlayGenre } from './../shared/interface';
+import { InVoices, Plays, Performance, PlayGenre, performanceCalculatorParameter, PerformanceCalculator } from './../shared/interface';
 import { FormatCurrency } from '../shared/FormatCurrency';
 
 const caculateAmountByGenre = (plays: Plays, performance: Performance): number => {
@@ -7,18 +7,19 @@ const caculateAmountByGenre = (plays: Plays, performance: Performance): number =
   const audienceCount = performance.audience;
 
   switch (play.type) {
-    case PlayGenre.comedy: {
+    case PlayGenre.tragedy: {
       amount = 40000;
       if (audienceCount > 30) {
         amount += 1000 * (audienceCount - 30);
       }
       break;
     }
-    case PlayGenre.tragedy: {
+    case PlayGenre.comedy: {
       amount = 30000;
       if (audienceCount > 20) {
         amount += 10000 + 500 * (audienceCount - 20);
       }
+      amount += 300 * audienceCount;
       break;
     }
   }

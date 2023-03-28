@@ -14,3 +14,11 @@ export enum PlayGenre {
   tragedy = 'tragedy',
   comedy = 'comedy',
 }
+
+export type performanceCalculatorParameter = {
+  audienceCount: number;
+}
+
+export interface PerformanceCalculator {
+  volumeCredit(audienceCount: number): number;
+}
