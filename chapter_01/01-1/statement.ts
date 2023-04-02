@@ -34,7 +34,7 @@ export function statement(invoice: InVoices, plays: Plays) {
 
     // 포인트를 적립한다.
     volumeCredits += Math.max(perf.audience - 30, 0);
-
+    console.log(volumeCredits, plays[perf.playID])
     // 희극 관객 5명마다 추가 포인트를 제공한다.
     if ('comedy' === play.type) {
       volumeCredits += Math.floor(perf.audience / 5);

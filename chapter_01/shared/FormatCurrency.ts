@@ -1,5 +1,5 @@
 export class FormatCurrency {
-  static KRWToUSD(won: number): string {
+  static KRWToUSDCent(won: any): string {
     return new Intl.NumberFormat('en-US',
       {
         style: 'currency',

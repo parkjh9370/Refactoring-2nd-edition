@@ -10,9 +10,10 @@ export interface Performance {
 
 export type Plays = Record<string, Record<string, string>>
 
-export enum PlayGenre {
+export enum Calculator {
   tragedy = 'tragedy',
   comedy = 'comedy',
+  credit = 'credit',
 }
 
 export type performanceCalculatorParameter = {

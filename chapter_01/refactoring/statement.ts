@@ -1,4 +1,4 @@
-import { InVoices, Plays, Performance, PlayGenre, performanceCalculatorParameter, PerformanceCalculator } from './../shared/interface';
+import { InVoices, Plays, Performance, Calculator, performanceCalculatorParameter, PerformanceCalculator } from './../shared/interface';
 import { FormatCurrency } from '../shared/FormatCurrency';
 
 const caculateAmountByGenre = (plays: Plays, performance: Performance): number => {
@@ -7,14 +7,14 @@ const caculateAmountByGenre = (plays: Plays, performance: Performance): number =
   const audienceCount = performance.audience;
 
   switch (play.type) {
-    case PlayGenre.tragedy: {
+    case Calculator.tragedy: {
       amount = 40000;
       if (audienceCount > 30) {
         amount += 1000 * (audienceCount - 30);
       }
       break;
     }
-    case PlayGenre.comedy: {
+    case Calculator.comedy: {
       amount = 30000;
       if (audienceCount > 20) {
         amount += 10000 + 500 * (audienceCount - 20);
@@ -33,11 +33,11 @@ const caculateVolumeCreditAmountByGenre = (plays: Plays, performance: Performanc
 
   let volumeCrediteAmount = Math.max(audienceCount - 30, 0);
   switch (play.type) {
-    case PlayGenre.comedy: {
+    case Calculator.comedy: {
       volumeCrediteAmount += Math.floor(audienceCount / 5);
       break;
     }
-    case PlayGenre.tragedy: {
+    case Calculator.tragedy: {
       break;
     }
   }
@@ -56,14 +56,15 @@ export function createStatement(invoice: InVoices, plays: Plays) {
     const playName = plays[performance.playID];
     const amount = caculateAmountByGenre(plays, performance);
     
-    result.push(`${playName.name}: ${FormatCurrency.KRWToUSD(amount)} ${performance.audience}석\n`)
+    result.push(`${playName.name}: ${FormatCurrency.KRWToUSDCent(amount)} ${performance.audience}석\n`)
 
+    console.log(volumeCreditTotalAmount, playName)
     totalAmount += amount;
     volumeCreditTotalAmount += caculateVolumeCreditAmountByGenre(plays, performance);
   }
 
-  result.push(`총액: ${FormatCurrency.KRWToUSD(totalAmount)}\n`)
-  result.push(`적립 포인트: ${FormatCurrency.KRWToUSD(volumeCreditTotalAmount)}점\n`)
+  result.push(`총액: ${FormatCurrency.KRWToUSDCent(totalAmount)}\n`)
+  result.push(`적립 포인트: ${FormatCurrency.KRWToUSDCent(volumeCreditTotalAmount)}점\n`)
 
   return result.join('');
 }
