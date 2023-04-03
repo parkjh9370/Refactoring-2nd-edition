@@ -1,6 +1,6 @@
-import { performanceCalculatorParameter } from '../../shared/interface';
+import { PerformanceCalculator, performanceCalculatorParameter } from '../../shared/interface';
 
-export class performanceCalculator {
+export class performanceCalculator implements PerformanceCalculator {
   audienceCount: number;
   _amount: number;
 

@@ -6,7 +6,7 @@ export class ComedyCalculator extends performanceCalculator {
     super(parameter)
   }
 
-  private addTotalAmountByCondition() {
+  private addTotalAmountByCondition(): number {
     if (this.audienceCount > 20) {
       return 10000 + 500 * (this.audienceCount - 20);
     }

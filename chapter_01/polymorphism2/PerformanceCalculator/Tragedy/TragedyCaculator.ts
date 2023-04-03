@@ -1,12 +1,12 @@
 import { performanceCalculatorParameter } from '../../../shared/interface';
-import { performanceCalculator } from './../PerformanceCaculator';
+import { performanceCalculator } from '../PerformanceCaculator';
 
 export class TragedyCalculator extends performanceCalculator {
   constructor(parameter: performanceCalculatorParameter) {
     super(parameter);
   }
 
-  private addTotalAmountByCondition() {
+  private addTotalAmountByCondition(): number {
     if (this.audienceCount > 30) {
       return 1000 * (this.audienceCount - 30);
     }
