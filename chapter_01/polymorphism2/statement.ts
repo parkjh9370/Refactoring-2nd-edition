@@ -42,8 +42,8 @@ class statement {
   get statementPhrases(): string {
     let phrases = `\n[Statement: ${this.invocies.customer}]\n\n`;
 
-    for (const statement of this.statementAmount) {
-      phrases += `${statement[0]}: ${FormatCurrency.KRWToUSDCent(statement[1])}\n`;
+    for (const [k, v] of this.statementAmount) {
+      phrases += `${k}: ${FormatCurrency.KRWToUSDCent(v)}\n`;
     }
 
     return phrases;
