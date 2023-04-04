@@ -34,7 +34,7 @@ class statement {
     });
 
     stateAmount.set('totalAmount', [...stateAmount.values()].reduce((a, c) => Number(a) + Number(c)));
-    stateAmount.set('volumeCredit', volumeCreditAmount);
+    stateAmount.set('volumeCreditAmount', volumeCreditAmount);
 
     return stateAmount;
   }
