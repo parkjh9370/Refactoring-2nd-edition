@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/parkjh9370/Refactoring-2nd-edition#readme",
   "dependencies": {
+    "dayjs": "^1.11.7",
     "typescript": "^5.0.2"
   },
   "devDependencies": {
