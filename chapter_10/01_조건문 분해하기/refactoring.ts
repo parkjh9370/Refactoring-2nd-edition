@@ -1,3 +1,6 @@
+/**
+ * 복잡한 조건문 분해
+ */
 import dayjs from 'dayjs';
 
 const aDate = dayjs(new Date());

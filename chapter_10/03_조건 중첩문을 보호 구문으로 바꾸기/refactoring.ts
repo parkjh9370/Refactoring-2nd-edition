@@ -1,3 +1,8 @@
+/**
+ * if, else if, else 를 연달아 쓰는 중첩 조건문 지양
+ * 하나의 조건문 if에서 명확한 return 사용하고, 그렇지 않은 경우 분리(else if, else 사용 X)
+ */
+
 function payment(employee) {
   if (employee.isSeparated) {
     return { amount: 0, reasonCode: 'SEP' };

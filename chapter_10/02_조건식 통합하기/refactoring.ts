@@ -1,3 +1,6 @@
+/**
+ * and, or 연산자를 통한 조건문 통합
+ */
 const anEmployee = {
   onVacation: 10,
   seniority: 60,
